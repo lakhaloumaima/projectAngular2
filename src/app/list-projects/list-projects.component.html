@@ -1,0 +1,72 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="jumbotron">
+            <h1 class="display-4">All Projects  </h1>
+        <a class="btn btn-success" routerLink="/addproject"> create project</a>
+        <a class="btn btn-danger" href=""> Trash <i class="fas fa-trash"></i></a>
+           </div>
+      </div>
+    </div>
+    <div class="col" >
+      <div class="alert alert-danger" role="alert" *ngIf="messageErr" >
+         {{messageErr}}
+        </div>
+  </div>
+
+  
+    <div class="row">
+
+
+        
+        <div class="col">
+            <table class="table" *ngIf="dataArray">
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col"> Description</th>
+                    <th scope="col">averagePayment</th>
+                    <th scope="col">period</th>
+                    <th scope="col">start_date</th>
+                    <th scope="col">end_date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   
+                  
+                    <tr *ngFor="let item of dataArray.data " >
+                      <th scope="row"> {{item.id}} </th>
+                        <td> {{item.title}} </td>
+                        <td> {{item.description}}  </td>
+                        <td> {{item.averagePayement}} </td>
+                        <td> {{item.period}} </td>
+                        <td> {{item.start_date}} </td>
+                        <td> {{item.end_date}} </td>
+                        <td>
+                            <a  class="text-success" href=""> <i class="fa fa-check"></i></a>
+                           
+                            &nbsp;&nbsp;
+                            <a href=""> <i class="fas fa-2x fa-edit"></i>  </a>&nbsp;&nbsp;
+                            <a class="text-danger" href=""> <i class="fas  fa-2x fa-trash-alt"></i> </a>
+                            
+
+                        </td>
+                      </tr>
+                   
+
+                </tbody>
+              </table>
+
+
+          </div>
+         
+      
+
+
+    </div>
+  </div>
+
+
