@@ -14,7 +14,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule }   from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowPostsComponent } from './show-posts/show-posts.component';
-import { UpdatePostsComponent } from './update-posts/update-posts.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { UpdatePostsComponent } from './update-posts/update-posts.component';
     ListFreelancersComponent,
     AddProjectComponent,
     ShowPostsComponent,
-    UpdatePostsComponent,
+
   
     
   ],

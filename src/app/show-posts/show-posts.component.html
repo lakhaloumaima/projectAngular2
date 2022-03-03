@@ -4,7 +4,8 @@
       <div class="card-body">
         <h5 class="card-title">  {{dataObject.title}} </h5>
         <p class="card-text"> {{dataObject.description}} </p>
-        {{dataObject.updated_at | date: 'medium'}}
+        {{dataObject.updated_at | date: 'medium'}} <br> <br>
+        <a class="btn btn-success" routerLink="/posts"> all projects</a>
       </div>
     </div>
   </div>

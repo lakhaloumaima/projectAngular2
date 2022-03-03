@@ -14,9 +14,9 @@ export class ListProjectsComponent implements OnInit {
   dataArray:any = []
  
   dataStudent={
+    id : '',
     title:'',
-    description:'',
-    updated_at : '' ,
+    description:''
    /* averagePayment:0 ,
     period:0,
     start_date:'',
@@ -25,7 +25,7 @@ export class ListProjectsComponent implements OnInit {
   }
   messageErr =''
 
-  messageSuccess=''
+  messageSuccess = '' 
   constructor(private produitServiceService:ProduitServiceService,private route:Router) {
     
   }
@@ -52,8 +52,34 @@ export class ListProjectsComponent implements OnInit {
 
     })
     
-
   }
+  
+    getdata(title:string,description:string,id:any){
+      this.messageSuccess=''
+      this.dataStudent.title=title
+      this.dataStudent.description=description
+      this.dataStudent.id=id
+      console.log(this.dataStudent)
+  
+    }
+    updatenewstudent(f:any){
+      let data=f.value
+      this.produitServiceService.updateStudent(this.dataStudent.id,data).subscribe(response=>
+        {
+        console.log(response)
+          let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataStudent.id)
+  
+          this.dataArray[indexId].title=data.title
+          this.dataArray[indexId].description=data.description
+  
+          this.messageSuccess=`this title : ${this.dataArray[indexId].title} is updated`
+  
+        },(err:HttpErrorResponse)=>{
+          console.log(err.message)
+        
+        })
+    }
+  
 
 /*
   constructor(private http : HttpClient) {

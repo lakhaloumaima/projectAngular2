@@ -50,13 +50,13 @@ export class ProduitServiceService {
   }
 
   deletestudent(id:any){
-    return this.http.delete(environment.urlBackend+'deleteproject/' +id )
+    return this.http.delete(environment.urlBackend+'posts/' +id )
 
   }
 
   updateStudent(id:string,newprofile:any){
 
-    return this.http.patch(environment.urlBackend+'student/'+id,newprofile )
+    return this.http.patch(environment.urlBackend+'posts/'+id,newprofile )
 
   }
 
