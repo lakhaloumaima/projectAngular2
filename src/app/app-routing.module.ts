@@ -14,8 +14,8 @@ const routes: Routes = [
   { path : 'home' , component:HomeComponent } ,
   { path : 'login' , component:LoginComponent } ,
   { path : 'register' , component:RegisterComponent } ,
-  { path : 'projects' , component:ListProjectsComponent  } ,
-  { path : 'addproject' , component:AddProjectComponent  } ,
+  { path : 'posts' , component:ListProjectsComponent  } ,
+  { path : 'post/new' , component:AddProjectComponent  } ,
   { path : 'freelancers' , component:ListFreelancersComponent } ,
   { path : 'posts/:id' , component:ShowPostsComponent  } ,
 

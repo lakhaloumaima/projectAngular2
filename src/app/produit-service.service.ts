@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProduitServiceService {
-  apiURL: string = 'http://localhost:3000/categories';
+  apiURL: string = 'http://localhost:3000/';
 
   token:any=localStorage.getItem('token')
   headerAdmin=new HttpHeaders()
@@ -36,7 +36,7 @@ export class ProduitServiceService {
    
    addstudent(profile:any){
 
-    return this.http.post(environment.urlBackend+'addproject/',profile) ;
+    return this.http.post(environment.urlBackend+'posts/',profile) ;
 
   }
   

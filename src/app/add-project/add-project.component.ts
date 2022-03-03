@@ -29,7 +29,7 @@ export class AddProjectComponent implements OnInit {
     this.produitServiceService.addstudent(data).subscribe( ()=>{
         console.log(data)
 
-      this.router.navigate(['/projects'])
+      this.router.navigate(['/posts'])
 
     },(err:HttpErrorResponse)=>{
       this.messageErr=err.error
