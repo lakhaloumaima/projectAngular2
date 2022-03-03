@@ -1,11 +1,13 @@
 
-<ul *ngIf="dataObject">
-    <li>{{dataObject.title}}</li>
-    <li>{{dataObject.description}}</li>
-
-    <li>{{dataObject.updated_at | date: 'medium'}}</li>
-
-</ul>
+<div class="container card-columns">
+    <div class="card" *ngIf="dataObject" >
+      <div class="card-body">
+        <h5 class="card-title">  {{dataObject.title}} </h5>
+        <p class="card-text"> {{dataObject.description}} </p>
+        {{dataObject.updated_at | date: 'medium'}}
+      </div>
+    </div>
+  </div>
 
 
 

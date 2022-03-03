@@ -16,6 +16,7 @@ export class AddProjectComponent implements OnInit {
 
   messageErr="" ;
 
+  submitted : boolean = false ;
   constructor(private produitServiceService : ProduitServiceService, private router :Router) { 
 
   }
@@ -26,10 +27,11 @@ export class AddProjectComponent implements OnInit {
   add(f:any){
     let data=f.value
     console.log(data)
+    
     this.produitServiceService.addstudent(data).subscribe( ()=>{
         console.log(data)
-
-      this.router.navigate(['/posts'])
+        this.submitted = true ;
+      //this.router.navigate(['/posts'])
 
     },(err:HttpErrorResponse)=>{
       this.messageErr=err.error
