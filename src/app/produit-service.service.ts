@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProduitServiceService {
-  apiURL: string = 'http://localhost:8000/projects/api';
+  apiURL: string = 'http://localhost:3000/categories';
 
   token:any=localStorage.getItem('token')
   headerAdmin=new HttpHeaders()
@@ -41,9 +41,19 @@ export class ProduitServiceService {
   }
   
   getAllstudents(){
-    return this.http.get(`${environment.urlBackend}`+'projects/')
+    return this.http.get(`${environment.urlBackend}`+'posts/')
   }
 
+  deletestudent(id:any){
+    return this.http.delete(environment.urlBackend+'deleteproject/' +id )
+
+  }
+
+  updateStudent(id:string,newprofile:any){
+
+    return this.http.patch(environment.urlBackend+'student/'+id,newprofile )
+
+  }
 
    listeProduit(): Observable<Produit[]>{
     return this.http.get<Produit[]>(this.apiURL);

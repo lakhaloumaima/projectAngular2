@@ -36,6 +36,17 @@ export class ListProjectsComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
   }
+
+  delete(id:any  , i :number){
+
+    this.produitServiceService.deletestudent(id).subscribe(response=>{
+      console.log(response)
+      this.dataArray.splice(i,1)
+
+    })
+
+  }
+
 /*
   constructor(private http : HttpClient) {
     this.http.get('http://localhost:8000/api/products').subscribe(data => console.log(data)) ;
