@@ -44,6 +44,11 @@ export class ProduitServiceService {
     return this.http.get(`${environment.urlBackend}`+'posts/')
   }
 
+  getOnestudent(id:any){
+    
+    return this.http.get(environment.urlBackend+'posts/'+id)
+  }
+
   deletestudent(id:any){
     return this.http.delete(environment.urlBackend+'deleteproject/' +id )
 

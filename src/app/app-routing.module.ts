@@ -7,6 +7,7 @@ import { ListFreelancersComponent } from './list-freelancers/list-freelancers.co
 import { ListProjectsComponent } from './list-projects/list-projects.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ShowPostsComponent } from './show-posts/show-posts.component';
 
 const routes: Routes = [
   { path : '', component : HomeComponent} ,
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path : 'projects' , component:ListProjectsComponent  } ,
   { path : 'addproject' , component:AddProjectComponent  } ,
   { path : 'freelancers' , component:ListFreelancersComponent } ,
-
+  { path : 'posts/:id' , component:ShowPostsComponent  } ,
 
 ];
 

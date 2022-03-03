@@ -28,7 +28,7 @@
                     <th scope="col">#</th>
                     <th scope="col">title</th>
                     <th scope="col"> description</th>
-                    
+                    <th scope="col"> updated_at</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -39,12 +39,13 @@
                       <th scope="row"> {{item.id}} </th>
                         <td> {{item.title}} </td>
                         <td> {{item.description}}  </td>
-                        
+                        <td> {{item.updated_at | date:'medium'}}  </td>
                         <td>
-                            <a  class="text-success" href=""> <i class="fas  fa-2x fa-eye"></i> </a>
+                         
+                            <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>
                            
                             &nbsp;&nbsp;
-                            <a href=""> <i class="fas fa-2x fa-edit"></i>  </a>&nbsp;&nbsp;
+                            <a href=""   > <i class="fas fa-2x fa-edit"></i>  </a>&nbsp;&nbsp;
                             <button class="text-danger" (click)="delete(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </button>
                            
 

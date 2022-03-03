@@ -1,0 +1,14 @@
+
+<ul *ngIf="dataObject">
+    <li>{{dataObject.title}}</li>
+    <li>{{dataObject.description}}</li>
+
+    <li>{{dataObject.updated_at | date: 'medium'}}</li>
+
+</ul>
+
+
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>

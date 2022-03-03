@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule }   from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShowPostsComponent } from './show-posts/show-posts.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListProjectsComponent,
     ListFreelancersComponent,
     AddProjectComponent,
+    ShowPostsComponent,
   
     
   ],

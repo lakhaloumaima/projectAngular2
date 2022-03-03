@@ -16,10 +16,12 @@ export class ListProjectsComponent implements OnInit {
   dataStudent={
     title:'',
     description:'',
-    averagePayment:0 ,
+    updated_at : '' ,
+   /* averagePayment:0 ,
     period:0,
     start_date:'',
     end_date:'',
+    */
   }
   messageErr =''
 
@@ -37,6 +39,11 @@ export class ListProjectsComponent implements OnInit {
     }) 
   }
 
+  details(id:any){
+    this.route.navigate(['/posts/'+id])
+  }
+
+
   delete(id:any  , i :number){
 
     this.produitServiceService.deletestudent(id).subscribe(response=>{
@@ -44,6 +51,7 @@ export class ListProjectsComponent implements OnInit {
       this.dataArray.splice(i,1)
 
     })
+    
 
   }
 
