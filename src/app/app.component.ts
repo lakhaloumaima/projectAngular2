@@ -9,4 +9,5 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
   title = 'projectAngular2';
   faCoffee = faCoffee;
+  
 }

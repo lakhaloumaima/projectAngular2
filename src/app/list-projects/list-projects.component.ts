@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { SearchfilterPipe } from '../searchfilter.pipe';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Produit } from '../produit';
 import { ProduitServiceService  } from '../produit-service.service';
 import { Router } from '@angular/router';
+import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-projects',
@@ -10,9 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-projects.component.css']
 })
 export class ListProjectsComponent implements OnInit {
- 
   dataArray:any = []
- 
+  p:number = 1 ;
   dataStudent={
     id : '',
     title:'',
@@ -24,8 +24,11 @@ export class ListProjectsComponent implements OnInit {
     */
   }
   messageErr =''
+  posts :Produit[] = [] ;
+  messageSuccess = '' ;
+  title: string ="" ;
+  searchedKeyword!:string;
 
-  messageSuccess = '' 
   constructor(private produitServiceService:ProduitServiceService,private route:Router) {
     
   }
@@ -38,7 +41,25 @@ export class ListProjectsComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
   }
+  /*
+  search() {
+    if(this.title == "") 
+      this.ngOnInit() ;
+    else {
+      this.posts = this.posts.filter(res =>{
+        return this.title.toLocaleLowerCase().match(this.title.toLocaleLowerCase())
+      }) 
+    } 
+  }
+  */
 
+  key = 'id' ;
+  reverse: boolean = false ;
+
+  sort(key: string) {
+    this.key = key ;
+    this.reverse = !this.reverse ;
+  }
   details(id:any){
     this.route.navigate(['/posts/'+id])
   }
@@ -80,6 +101,8 @@ export class ListProjectsComponent implements OnInit {
         })
     }
   
+ 
+
 
 /*
   constructor(private http : HttpClient) {

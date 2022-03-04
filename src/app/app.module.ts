@@ -11,10 +11,13 @@ import { ListProjectsComponent } from './list-projects/list-projects.component';
 import { ListFreelancersComponent } from './list-freelancers/list-freelancers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProjectComponent } from './add-project/add-project.component';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule , ReactiveFormsModule}   from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowPostsComponent } from './show-posts/show-posts.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { SearchfilterPipe } from './searchfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { ShowPostsComponent } from './show-posts/show-posts.component';
     ListFreelancersComponent,
     AddProjectComponent,
     ShowPostsComponent,
+    SearchfilterPipe,
 
   
     
@@ -36,7 +40,11 @@ import { ShowPostsComponent } from './show-posts/show-posts.component';
     AppRoutingModule ,
     HttpClientModule ,
     FormsModule ,
-    FontAwesomeModule
+    FontAwesomeModule ,
+    Ng2SearchPipeModule ,
+    NgxPaginationModule ,
+    Ng2OrderModule ,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

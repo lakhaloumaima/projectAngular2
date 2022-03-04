@@ -1,6 +1,6 @@
 export class Produit {
     id?: number ;
-    title?: string  ;
+    title!: string  ;
     description?: string ;
     updated_at?: string ;
   /*  title: string = '' ;
@@ -10,5 +10,6 @@ export class Produit {
    
     start_date : string = '' ;
     end_date : string = '' ;
-    */
+  */
+   
 }
