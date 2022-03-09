@@ -3,6 +3,8 @@ import { Produit } from './produit';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'} )
@@ -86,7 +88,50 @@ updateProduit(prod :Produit) : Observable<Produit>
 {
 return this.http.put<Produit>(this.apiURL, prod, httpOptions);
 }
+//////////////////////// auth 
+helper=new JwtHelperService()
 
+
+
+  register(body:any){
+    return this.http.post('http://localhost:3000/registrations',body)
+  }
+
+  login(body:any){
+    return this.http.post('http://localhost:3000/sessions',body)
+  }
+
+
+  saveToken(token:any){
+
+    localStorage.setItem('token',token)
+
+  }
+
+
+  userLoggedIn(){
+
+    
+    
+    if(!localStorage.getItem('token')){
+      return false
+    }
+    let token:any=localStorage.getItem('token')
+    let decodeToken=this.helper.decodeToken(token)
+    
+    
+     if(decodeToken.role){
+       return false
+     }
+
+     if(this.helper.isTokenExpired(token)){
+       return false
+     }
+
+     return true
+
+
+  }
 
 
   

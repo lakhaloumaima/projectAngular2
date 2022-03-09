@@ -19,6 +19,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { SearchfilterPipe } from './searchfilter.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,

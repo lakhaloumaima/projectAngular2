@@ -1,4 +1,9 @@
+
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Produit } from '../produit';
+import { ProduitServiceService  } from '../produit-service.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  messageError:any
+  constructor(private produitServiceService:ProduitServiceService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  register(f:any){
+    let data=f.value
+
+    this.produitServiceService.register(data).subscribe(data=>{
+      this.router.navigate(['/sessions'])
+      
+      console.log(data)
+    },(err:HttpErrorResponse)=>{
+      console.log(err)
+      this.messageError="hjbgvehjbhvbsdhbv"})
+
+  }
 }

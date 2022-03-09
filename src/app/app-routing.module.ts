@@ -12,8 +12,8 @@ import { ShowPostsComponent } from './show-posts/show-posts.component';
 const routes: Routes = [
   { path : '', component : HomeComponent} ,
   { path : 'home' , component:HomeComponent } ,
-  { path : 'login' , component:LoginComponent } ,
-  { path : 'register' , component:RegisterComponent } ,
+  { path : 'sessions' , component:LoginComponent } ,
+  { path : 'registrations' , component:RegisterComponent } ,
   { path : 'posts' , component:ListProjectsComponent  } ,
   { path : 'post/new' , component:AddProjectComponent  } ,
   { path : 'freelancers' , component:ListFreelancersComponent } ,
