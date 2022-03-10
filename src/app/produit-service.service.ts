@@ -134,5 +134,17 @@ helper=new JwtHelperService()
   }
 
 
+  /////////////// users 
+  getAllusers(){
+    return this.http.get(`${environment.urlBackend}`+'list_users/')
+  }
+  getOneuser(id:any){
+    
+    return this.http.get(environment.urlBackend+'list_users/'+id)
+  }
+  deleteuser(id:any){
+    return this.http.delete(environment.urlBackend+'list_users/' +id )
+
+  }
   
 }

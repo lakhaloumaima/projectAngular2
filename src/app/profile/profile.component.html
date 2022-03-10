@@ -1,0 +1,17 @@
+
+<div class="container card-columns">
+    <div class="card" *ngIf="dataObject" >
+      <div class="card-body">
+        <h5 class="card-title">  {{dataObject.email}} </h5>
+        <p class="card-text">  </p>
+        {{dataObject.updated_at | date: 'medium'}} <br> <br>
+        <a class="btn btn-success" routerLink="/users"> all users</a>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="alert alert-danger" *ngIf="messageErr">
+    {{messageErr}}
+</div>

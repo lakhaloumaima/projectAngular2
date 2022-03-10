@@ -18,6 +18,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { SearchfilterPipe } from './searchfilter.pipe';
+import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     AddProjectComponent,
     ShowPostsComponent,
     SearchfilterPipe,
+    UsersComponent,
+    ProfileComponent,
 
   
     
