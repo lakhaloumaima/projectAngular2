@@ -2,7 +2,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Produit } from '../produit';
+import { User } from '../user';
 import { ProduitServiceService  } from '../produit-service.service';
 
 @Component({

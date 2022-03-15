@@ -1,18 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Produit } from './produit';
+import { Category } from './category';
 
 @Pipe({
   name: 'searchfilter'
 })
 export class SearchfilterPipe implements PipeTransform {
 
-  transform(title: string, produits: Produit[]): Produit[] {
-    if (!produits || !title ) {
-      return produits ;
+  transform(name: string, categories: Category[]): Category[] {
+    if (!categories || !name ) {
+      return categories ;
     }
 
-    return produits.filter(produit =>{
-      return produit.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())
+    return categories.filter(category =>{
+      return Category.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())
     }) 
   }
 

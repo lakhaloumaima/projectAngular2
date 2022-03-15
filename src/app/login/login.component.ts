@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Produit } from '../produit';
+import { User } from '../user';
 import { ProduitServiceService  } from '../produit-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.produitServiceService.login(data).subscribe(data=>{
       //this.datatoken=data
       //this.produitServiceService.saveToken(this.datatoken.token)
-      this.route.navigate(['/posts'])
+      this.route.navigate(['/users'])
 
 
     },(err:HttpErrorResponse)=>this.messageError=err.error.error)

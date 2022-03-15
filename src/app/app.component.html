@@ -19,9 +19,9 @@
   
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/posts">
+            <a class="nav-link" routerLink="/missions">
                 <i class="fa-solid fa-list"></i>
-                <span>All Posts </span></a>
+                <span>All Missions </span></a>
         </li>
 
         <li class="nav-item active">
@@ -34,6 +34,12 @@
             <a class="nav-link" routerLink="/users">
                 <i class="fa-solid fa-list"></i>
                 <span>All Users </span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/categories">
+                <i class="fa-solid fa-list"></i>
+                <span>All Categories </span></a>
         </li>
 
         <!-- Divider -->
@@ -279,7 +285,7 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" routerLink="/sessions" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -320,7 +326,7 @@
   </a>
   
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div  class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -333,7 +339,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" (click)="logout()" href="/sessions" >Logout</a>
             </div>
         </div>
     </div>

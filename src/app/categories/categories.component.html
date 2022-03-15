@@ -5,13 +5,13 @@
     <div class="row">
       <div class="col">
         <div class="jumbotron">
-            <h1 class="display-4">All Projects  </h1>
-            <a class="btn btn-success" routerLink="/post/new"> create project</a> &nbsp;&nbsp;
+            <h1 class="display-4">All Categories  </h1>
+            <a class="btn btn-success" routerLink="/category/new"> Create Category</a> &nbsp;&nbsp;
             <a class="btn btn-danger" routerLink="/trash"> Trash <i class="fas fa-trash"></i></a> &nbsp;&nbsp;
             <form
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" name="title" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+                <input type="text" name="name" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
                 <input class="btn btn-primary" type="submit" name="" value="Search">
             </div>
         </form>
@@ -34,13 +34,9 @@
                 <thead class="thead-dark">
                   <tr >
                     <th scope="col" (click)="sort('id')" >#  &nbsp;<i class="fa fa-sort"> </i>  </th>
-                    <th scope="col"(click)="sort('title')" >title &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> description</th>
-                    <th scope="col"> completed</th>
-                    <th scope="col"> filepath </th>
-                    <th scope="col"> user </th>
-                    <th scope="col"> category</th>
-                    <th scope="col"> updated_at</th>
+                    <th scope="col"(click)="sort('name')" >Name &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col"> Avatar</th>
+                  
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -49,14 +45,9 @@
                   
                     <tr *ngFor="let item of dataArray | orderBy: key:reverse |paginate:{itemsPerPage:5 , currentPage :p}| filter:searchedKeyword ; index as i" >
                       <th scope="row" > {{item.id}} </th>
-                        <td> {{item.title}} </td>
-                        <td> {{item.description}}  </td>
-                        <td>{{item.completed}}</td>
-                        <td> {{item.filepath}}</td>
-                        <td > {{item.user_id}}  </td>
-                        <td> {{item.category_id}}  </td>
-        
-                        <td> {{item.updated_at | date:'medium'}}  </td>
+                        <td> {{item.name}} </td>
+                        <td> {{item.image}}  </td>
+                       
                         <td>
                          
                             <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>
@@ -93,7 +84,7 @@
                 <div class="form-group">
             
                   <label for="exampleFormControlInput1">Title</label>
-                  <input type="text" class="form-control" placeholder="title" [(ngModel)]="dataStudent.title" required name="title" #title="ngModel" ngModel minlength="2" maxlength="20">
+                  <input type="text" class="form-control" placeholder="name" [(ngModel)]="dataStudent.name" required name="name" #name="ngModel" ngModel minlength="2" maxlength="20">
                 </div>
                 <!--  
                    <div class="alert alert-danger" *ngIf="title.touched">
@@ -107,7 +98,7 @@
             <!-- lastName validation start here -->
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Description</label>
-                    <input type="text" class="form-control" placeholder="description" [(ngModel)]="dataStudent.description" required name="description" #description="ngModel" minlength="2" maxlength="20" ngModel>
+                    <input type="file" class="form-control" placeholder="image" [(ngModel)]="dataStudent.image" required name="image" #image="ngModel" minlength="2" maxlength="20" ngModel>
                   </div>
                 
             <!-- lastName validation end here -->

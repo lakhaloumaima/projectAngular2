@@ -20,7 +20,10 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import { UsersComponent } from './users/users.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoriesComponent } from './categories/categories.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
     SearchfilterPipe,
     UsersComponent,
     ProfileComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
 
   
     
@@ -49,7 +54,9 @@ import { ProfileComponent } from './profile/profile.component';
     Ng2SearchPipeModule ,
     NgxPaginationModule ,
     Ng2OrderModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule ,
+    BrowserAnimationsModule ,
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]

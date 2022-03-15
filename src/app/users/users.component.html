@@ -10,7 +10,7 @@
             <form
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" name="email" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+                <input type="text" name="role" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
                 <input class="btn btn-primary" type="submit" name="" value="Search">
             </div>
         </form>
@@ -34,7 +34,9 @@
                   <tr >
                     <th scope="col" (click)="sort('id')" >#  &nbsp;<i class="fa fa-sort"> </i>  </th>
                     <th scope="col"(click)="sort('title')" >Email &nbsp;<i class="fa fa-sort"> </i> </th>
-                    
+                    <th scope="col"(click)="sort('lastname')" >Last name &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col"(click)="sort('firstname')" >First name &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col"(click)="sort('role')" >Role  &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -44,6 +46,9 @@
                     <tr *ngFor="let item of dataArray | orderBy: key:reverse |paginate:{itemsPerPage:5 , currentPage :p}| filter:searchedKeyword ; index as i" >
                       <th scope="row" > {{item.id}} </th>
                         <td> {{item.email}} </td>
+                        <td> {{item.lastname}}</td>
+                        <td> {{item.firstname}}</td>
+                        <td> {{item.role}} </td>
                         
                         <td>
                           <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>

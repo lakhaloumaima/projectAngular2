@@ -1,43 +1,43 @@
-
 import { SearchfilterPipe } from '../searchfilter.pipe';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User } from '../user';
 import { ProduitServiceService  } from '../produit-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
+import { Category } from '../category';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css']
 })
-export class UsersComponent implements OnInit {
-
+export class CategoriesComponent implements OnInit {
   dataArray:any = []
   p:number = 1 ;
   dataStudent={
     id : '',
-    email:'',
-    role:'' ,
-  
+    name:'',
+    image:''
+   /* averagePayment:0 ,
+    period:0,
+    start_date:'',
+    end_date:'',
+    */
   }
   messageErr =''
-  posts :User[] = [] ;
+  posts :Category[] = [] ;
   messageSuccess = '' ;
-  // email : string ="" ;
-  
-  role: string ="" ;
+  name: string ="" ;
   searchedKeyword!:string;
 
   constructor(private produitServiceService:ProduitServiceService,private route:Router) {
     
   }
   ngOnInit(): void {
-    this.produitServiceService.getAllusers().subscribe(data=>{
+    this.produitServiceService.getAllcategories().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
         console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
+      this.messageErr="We dont't found this category in our database"} 
       //console.log(this.dataArray)
     }) 
   }
@@ -61,13 +61,13 @@ export class UsersComponent implements OnInit {
     this.reverse = !this.reverse ;
   }
   details(id:any){
-    this.route.navigate(['/users/'+id])
+    this.route.navigate(['/categories/'+id])
   }
 
 
   delete(id:any  , i :number){
 
-    this.produitServiceService.deleteuser(id).subscribe(response=>{
+    this.produitServiceService.deletestudent(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
 
@@ -75,11 +75,11 @@ export class UsersComponent implements OnInit {
     
   }
   
-    getdata(email:string, id:any){
+    getdata(title:string,description:string,id:any){
       this.messageSuccess=''
-      this.dataStudent.id = id 
-      this.dataStudent.email = email
-      // this.dataStudent.role = role 
+      this.dataStudent.name=this.name
+      // this.dataStudent.image = this.image
+      this.dataStudent.id=id
       console.log(this.dataStudent)
   
     }
@@ -93,14 +93,12 @@ export class UsersComponent implements OnInit {
           this.dataArray[indexId].title=data.title
           this.dataArray[indexId].description=data.description
   
-          this.messageSuccess=`this name : ${this.dataArray[indexId].title} is updated`
+          this.messageSuccess=`this title : ${this.dataArray[indexId].title} is updated`
   
         },(err:HttpErrorResponse)=>{
           console.log(err.message)
         
         })
-    }
-  
- 
 
+}
 }

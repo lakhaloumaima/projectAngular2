@@ -38,27 +38,28 @@ export class ProduitServiceService {
    
    addstudent(profile:any){
 
-    return this.http.post(environment.urlBackend+'posts/',profile) ;
+    return this.http.post(environment.urlBackend+'missions/',profile) ;
 
   }
   
   getAllstudents(){
-    return this.http.get(`${environment.urlBackend}`+'posts/')
+    return this.http.get(`${environment.urlBackend}`+'missions/')
   }
+
 
   getOnestudent(id:any){
     
-    return this.http.get(environment.urlBackend+'posts/'+id)
+    return this.http.get(environment.urlBackend+'missions/'+id)
   }
 
   deletestudent(id:any){
-    return this.http.delete(environment.urlBackend+'posts/' +id )
+    return this.http.delete(environment.urlBackend+'missions/' +id )
 
   }
 
   updateStudent(id:string,newprofile:any){
 
-    return this.http.patch(environment.urlBackend+'posts/'+id,newprofile )
+    return this.http.patch(environment.urlBackend+'missions/'+id,newprofile )
 
   }
 
@@ -98,7 +99,7 @@ helper=new JwtHelperService()
   }
 
   login(body:any){
-    return this.http.post('http://localhost:3000/sessions',body)
+    return this.http.post(environment.urlBackend+'sessions/',body) ;
   }
 
 
@@ -135,16 +136,34 @@ helper=new JwtHelperService()
 
 
   /////////////// users 
+
   getAllusers(){
-    return this.http.get(`${environment.urlBackend}`+'list_users/')
+    return this.http.get(`${environment.urlBackend}`+'users/')
   }
   getOneuser(id:any){
     
-    return this.http.get(environment.urlBackend+'list_users/'+id)
+    return this.http.get(environment.urlBackend+'users/'+id)
   }
   deleteuser(id:any){
-    return this.http.delete(environment.urlBackend+'list_users/' +id )
+    return this.http.delete(environment.urlBackend+'users/' +id )
 
+  }
+
+  //////////// categories 
+    
+  getAllcategories(){
+    return this.http.get(`${environment.urlBackend}`+'categories/')
+  }
+  addcategory(profile:any){
+
+    return this.http.post(environment.urlBackend+'categories/',profile) ;
+
+  }
+
+  ////////////// logout 
+  logout(){
+    // localStorage.removeItem('token')
+    return this.http.delete(environment.urlBackend+'logout/') ;
   }
   
 }
